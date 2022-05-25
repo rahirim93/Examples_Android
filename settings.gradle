@@ -1,0 +1,18 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "examplesAndroid"
+include ':app'
+include ':app:seekbar'
+include ':sharedpreferences'
+include ':launchsecondactivity'
+include ':examplethread'
+include ':listviewexample'
+include ':bluetoothconnecting'
+include ':isbatteryoptimazedcheck'
+include ':notifications'
