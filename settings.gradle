@@ -3,6 +3,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+        }
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
@@ -16,3 +19,7 @@ include ':listviewexample'
 include ':bluetoothconnecting'
 include ':isbatteryoptimazedcheck'
 include ':notifications'
+include ':anychart_linechart'
+include ':anychart_piechart'
+include ':anychart_linechart2'
+include ':anychart_linechart3'
