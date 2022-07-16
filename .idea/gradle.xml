@@ -23,8 +23,9 @@
             <option value="$PROJECT_DIR$/isbatteryoptimazedcheck" />
             <option value="$PROJECT_DIR$/launchsecondactivity" />
             <option value="$PROJECT_DIR$/listviewexample" />
+            <option value="$PROJECT_DIR$/mapkit_clustering" />
             <option value="$PROJECT_DIR$/notifications" />
-            <option value="$PROJECT_DIR$/sharedpreferences" />
+            <option value="$PROJECT_DIR$/shared_preferences" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -12,7 +12,7 @@ dependencyResolutionManagement {
 rootProject.name = "examplesAndroid"
 include ':app'
 include ':app:seekbar'
-include ':sharedpreferences'
+include ':shared_preferences'
 include ':launchsecondactivity'
 include ':examplethread'
 include ':listviewexample'
@@ -25,3 +25,4 @@ include ':anychart_linechart2'
 include ':anychart_linechart3'
 include ':date_picker'
 include ':class_calendar'
+include ':mapkit_clustering'
