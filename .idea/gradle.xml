@@ -29,6 +29,7 @@
             <option value="$PROJECT_DIR$/mapkit_map_objects" />
             <option value="$PROJECT_DIR$/notifications" />
             <option value="$PROJECT_DIR$/shared_preferences" />
+            <option value="$PROJECT_DIR$/step_detector_sensor" />
           </set>
         </option>
       </GradleProjectSettings>
