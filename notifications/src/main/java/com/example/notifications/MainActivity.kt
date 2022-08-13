@@ -9,10 +9,15 @@ import android.util.Log
 import android.widget.Button
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
+/**
+ *
+ */
 
 private const val NOTIFICATION_ID = 1
 private const val CHANNEL_ID = "channelId"
@@ -53,29 +58,25 @@ class MainActivity : AppCompatActivity() {
                 notify(NOTIFICATION_ID, builder.build())
             }
 
-            // we're starting a loop in a coroutine
-            GlobalScope.launch(Dispatchers.IO) {
-                while (isWorking) {
-                    launch(Dispatchers.IO) {
-                        counter += 5
-                        builder.setContentText("Counter is: $counter \n какой то текст")
-
-                        with(notificationManagerCompat) {
-                            notify(NOTIFICATION_ID, builder.build())
-                        }
-                    }
-                    delay(1000)
-                }
-                Log.d("TAG", "End of the loop for the service")
-            }
+//            // we're starting a loop in a coroutine
+//            GlobalScope.launch(Dispatchers.IO) {
+//                while (isWorking) {
+//                    launch(Dispatchers.IO) {
+//                        counter += 5
+//                        builder.setContentText("Counter is: $counter \n какой то текст")
+//
+//                        with(notificationManagerCompat) {
+//                            notify(NOTIFICATION_ID, builder.build())
+//                        }
+//                    }
+//                    delay(1000)
+//                }
+//                Log.d("TAG", "End of the loop for the service")
+//            }
         }
-
-
-
         button2.setOnClickListener {
             isWorking = false
         }
-
     }
 
     private fun createNotificationChannel() {
