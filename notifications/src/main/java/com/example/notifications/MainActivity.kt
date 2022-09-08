@@ -58,21 +58,21 @@ class MainActivity : AppCompatActivity() {
                 notify(NOTIFICATION_ID, builder.build())
             }
 
-//            // we're starting a loop in a coroutine
-//            GlobalScope.launch(Dispatchers.IO) {
-//                while (isWorking) {
-//                    launch(Dispatchers.IO) {
-//                        counter += 5
-//                        builder.setContentText("Counter is: $counter \n какой то текст")
-//
-//                        with(notificationManagerCompat) {
-//                            notify(NOTIFICATION_ID, builder.build())
-//                        }
-//                    }
-//                    delay(1000)
-//                }
-//                Log.d("TAG", "End of the loop for the service")
-//            }
+            // we're starting a loop in a coroutine
+            GlobalScope.launch(Dispatchers.IO) {
+                while (isWorking) {
+                    launch(Dispatchers.IO) {
+                        counter += 5
+                        builder.setContentText("Counter is: $counter \n какой то текст")
+
+                        with(notificationManagerCompat) {
+                            notify(NOTIFICATION_ID, builder.build())
+                        }
+                    }
+                    delay(1000)
+                }
+                Log.d("TAG", "End of the loop for the service")
+            }
         }
         button2.setOnClickListener {
             isWorking = false
