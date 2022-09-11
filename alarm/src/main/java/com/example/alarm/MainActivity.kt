@@ -28,11 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     private val TAG = "alarmExample"
 
-
     private lateinit var buttonSetAlarm: Button
 
-    private lateinit var notificationManager: NotificationManagerCompat
-    private lateinit var notificationBuilder: NotificationCompat.Builder
+    private lateinit var buttonTenSeconds: Button
 
     private lateinit var alarmManager: AlarmManager
 
@@ -50,19 +48,34 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun init() {
-        buttonSetAlarm = findViewById(R.id.buttonSetAlarm)
-        buttonSetAlarm.setOnClickListener {
-            materialTimePicker.show(supportFragmentManager, "alarm")
-        }
 
-        notificationManager = NotificationManagerCompat.from(this)
-        createNotificationChannel()
+    // Оставляем как есть
+    private fun getAlarmInfoPendingIntent(): PendingIntent {
+        val alarmInfoIntent = Intent(this, MainActivity::class.java)
+        alarmInfoIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        return PendingIntent.getActivity(this, 0, alarmInfoIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+    }
+
+
+    private fun init() {
+
+        initMaterialTimePicker()
+
+        initButtons()
 
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
 
-        simpleDateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+        simpleDateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
 
+    }
+
+    private fun setAlarm(calendar: Calendar, alarmActionPendingIntent: PendingIntent) {
+        val alarmClockInfo = AlarmManager.AlarmClockInfo(calendar.timeInMillis, getAlarmInfoPendingIntent())
+        alarmManager.setAlarmClock(alarmClockInfo, alarmActionPendingIntent)
+        Toast.makeText(this, "Будильник установлен на ${simpleDateFormat.format(calendar.time)}", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun initMaterialTimePicker() {
         materialTimePicker = MaterialTimePicker.Builder()
             .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
             .setTimeFormat(TimeFormat.CLOCK_24H)
@@ -70,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             .setMinute(Calendar.getInstance().get(Calendar.MINUTE) + 1)
             .setTitleText("Выберете время для будильника")
             .build()
+
         materialTimePicker.addOnPositiveButtonClickListener {
             val calendar = Calendar.getInstance()
             calendar.set(Calendar.SECOND, 0)
@@ -77,41 +91,34 @@ class MainActivity : AppCompatActivity() {
             calendar.set(Calendar.MINUTE, materialTimePicker.minute)
             calendar.set(Calendar.HOUR_OF_DAY, materialTimePicker.hour)
 
-            val alarmClockInfo = AlarmManager.AlarmClockInfo(calendar.timeInMillis, getAlarmInfoPendingIntent())
-            alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent())
-            Toast.makeText(this, "Будильник установлен на ${simpleDateFormat.format(calendar.time)}", Toast.LENGTH_SHORT).show()
+
             //finish()
         }
-
     }
 
-    private fun getAlarmInfoPendingIntent(): PendingIntent {
-        val alarmInfoIntent = Intent(this, MainActivity::class.java)
-        alarmInfoIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-        return PendingIntent.getActivity(this, 0, alarmInfoIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-    }
+    private fun initButtons() {
+        buttonTenSeconds = findViewById(R.id.buttonTenSeconds)
+        buttonTenSeconds.setOnClickListener {
 
-    private fun getAlarmActionPendingIntent(): PendingIntent {
-        val intent3 = createIntent("action 1", "extra 1")
-        return PendingIntent.getBroadcast(this, 0, intent3, 0)
-    }
+            val calendar = Calendar.getInstance().timeInMillis + 5000
+            val calendar2 = Calendar.getInstance()
+            calendar2.timeInMillis = calendar
 
-    private fun createIntent(action: String, extra: String): Intent {
-        var intent = Intent(this, Receiver::class.java)
-        intent.action = action
-        intent.putExtra("extra", extra)
-        return intent
-    }
+            var pendingIntent = PendingIntent.getBroadcast(
+                this,
+                0,
+                Intent(this, Receiver::class.java),
+                0
+            )
 
-    private fun createNotificationChannel() {
-        val name = "myChannel"
-        val descriptionText = "descriptionText"
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-            description = descriptionText
+            setAlarm(calendar2, pendingIntent)
+            finish()
         }
-        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
+
+        buttonSetAlarm = findViewById(R.id.buttonSetAlarm)
+        buttonSetAlarm.setOnClickListener {
+            materialTimePicker.show(supportFragmentManager, "alarm")
+        }
     }
 
     private fun log(string: String) {
