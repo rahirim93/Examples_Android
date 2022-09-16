@@ -33,6 +33,7 @@
             <option value="$PROJECT_DIR$/openweathermap_api_example" />
             <option value="$PROJECT_DIR$/shared_preferences" />
             <option value="$PROJECT_DIR$/step_detector_sensor" />
+            <option value="$PROJECT_DIR$/vibrator" />
           </set>
         </option>
       </GradleProjectSettings>
