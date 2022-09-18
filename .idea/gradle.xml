@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/shared_preferences" />
             <option value="$PROJECT_DIR$/step_detector_sensor" />
             <option value="$PROJECT_DIR$/vibrator" />
+            <option value="$PROJECT_DIR$/work_manager" />
           </set>
         </option>
       </GradleProjectSettings>
