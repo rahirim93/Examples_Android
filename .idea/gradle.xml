@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/mapkit_customization" />
             <option value="$PROJECT_DIR$/mapkit_driving" />
             <option value="$PROJECT_DIR$/mapkit_map_objects" />
+            <option value="$PROJECT_DIR$/muteModeChange" />
             <option value="$PROJECT_DIR$/notifications" />
             <option value="$PROJECT_DIR$/openweathermap_api_example" />
             <option value="$PROJECT_DIR$/sensor_orientation" />
