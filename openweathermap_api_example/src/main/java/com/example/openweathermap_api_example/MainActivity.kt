@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
             this,
             Observer {
                 Log.d(TAG, "Температура: ${(it.temp - 273).toString()}")
-                textView.text = (it.temp - 273).toString() + " градусов в Химках"
+                textView.text = "Температура: " + (it.temp).toString() + " градусов в Химках"
+                textView.append( "\nДавление: " + it.pressure.toString() + " гПа в Химках")
             })
     }
 }
