@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/alarm" />
+            <option value="$PROJECT_DIR$/anychart" />
             <option value="$PROJECT_DIR$/anychart_linechart" />
             <option value="$PROJECT_DIR$/anychart_linechart2" />
             <option value="$PROJECT_DIR$/anychart_linechart3" />
