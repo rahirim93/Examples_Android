@@ -17,6 +17,9 @@
             <option value="$PROJECT_DIR$/anychart_linechart2" />
             <option value="$PROJECT_DIR$/anychart_linechart3" />
             <option value="$PROJECT_DIR$/anychart_piechart" />
+            <option value="$PROJECT_DIR$/api_gismeteo_example" />
+            <option value="$PROJECT_DIR$/api_openweathermap_example" />
+            <option value="$PROJECT_DIR$/api_yandex_weather_example" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/seekbar" />
             <option value="$PROJECT_DIR$/bluetoothconnecting" />
@@ -38,7 +41,6 @@
             <option value="$PROJECT_DIR$/mapkit_map_objects" />
             <option value="$PROJECT_DIR$/muteModeChange" />
             <option value="$PROJECT_DIR$/notifications" />
-            <option value="$PROJECT_DIR$/openweathermap_api_example" />
             <option value="$PROJECT_DIR$/sensor_orientation" />
             <option value="$PROJECT_DIR$/shared_preferences" />
             <option value="$PROJECT_DIR$/step_detector_sensor" />
