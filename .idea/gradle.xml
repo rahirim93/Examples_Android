@@ -7,7 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="Android Studio default JDK" />
+        <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -41,9 +41,11 @@
             <option value="$PROJECT_DIR$/mapkit_map_objects" />
             <option value="$PROJECT_DIR$/muteModeChange" />
             <option value="$PROJECT_DIR$/notifications" />
+            <option value="$PROJECT_DIR$/room_migration" />
             <option value="$PROJECT_DIR$/sensor_orientation" />
             <option value="$PROJECT_DIR$/shared_preferences" />
             <option value="$PROJECT_DIR$/step_detector_sensor" />
+            <option value="$PROJECT_DIR$/test_callback_and_realtimegraph" />
             <option value="$PROJECT_DIR$/vibrator" />
             <option value="$PROJECT_DIR$/widget" />
             <option value="$PROJECT_DIR$/work_manager" />
