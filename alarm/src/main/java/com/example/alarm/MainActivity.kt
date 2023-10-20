@@ -1,25 +1,21 @@
 package com.example.alarm
 
 import android.app.AlarmManager
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 /** Пример использования будильника с отправкой уведомления при срабатывании
- * Пример использования своего BroadcastReceiver
+ * Пример использования своего BroadcastReceiver.
  * Добавить звонок и с новым активити*/
 
 private const val CHANNEL_ID = "channelId"
@@ -108,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 this,
                 0,
                 Intent(this, Receiver::class.java),
-                0
+                PendingIntent.FLAG_IMMUTABLE
             )
 
             setAlarm(calendar2, pendingIntent)
