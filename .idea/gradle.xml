@@ -43,6 +43,7 @@
             <option value="$PROJECT_DIR$/notifications" />
             <option value="$PROJECT_DIR$/room_migration" />
             <option value="$PROJECT_DIR$/sensor_orientation" />
+            <option value="$PROJECT_DIR$/share_data" />
             <option value="$PROJECT_DIR$/shared_preferences" />
             <option value="$PROJECT_DIR$/step_detector_sensor" />
             <option value="$PROJECT_DIR$/test_callback_and_realtimegraph" />
